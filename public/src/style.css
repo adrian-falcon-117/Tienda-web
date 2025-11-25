@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Beau+Rivage&family=Cookie&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --rosa: #f8cdd8;
+    --azul: #cce7f2;
+    --lavanda: #e3d5ff;
+    --blanco: #ffffff;
+    --gris: #f0f0f0;
+    --texto: #333;
+    --sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset y base */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--gris);
+    color: var(--texto);
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin-top: 70px;
+}
+
+h1,
+h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: linear-gradient(to right, var(--rosa), var(--azul));
+    color: var(--texto);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px var(--sombra);
+    gap: 1rem;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: var(--lavanda);
+    margin: 1.5rem 0;
+    border-radius: 2px;
+}
+
+
+button {
+    background: var(--lavanda);
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+    background: var(--azul);
+    transform: scale(1.05);
+}
+
+/* Bienvenida */
+.bienvenida {
+    width: 100%;
+    background: linear-gradient(to right, var(--rosa), var(--azul));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido {
+    width: 100%;
+    padding: 1px;
+    text-align: center;
+    background: var(--blanco);
+}
+
+.bienvenida h2 {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+#descripcion {
+    margin: 1px auto;
+    max-width: 600px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--texto);
+    padding: 0.8rem 1.2rem;
+    animation: fadeSlide 0.6s ease;
+    text-align: center;
+}
+
+
+.boton-entrar {
+    background: var(--lavanda);
+    color: var(--texto);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+.boton-entrar:hover {
+    background: var(--azul);
+    transform: scale(1.05);
+}
+
+/* Artículos */
+#lista-articulos-index {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.articulo {
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--sombra);
+    padding: 1rem;
+    animation: fadeSlide 0.5s ease;
+}
+
+.articulo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px var(--sombra);
+}
+
+.articulo img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.articulo button:disabled {
+    background: #ddd;
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Carrito */
+.carrito-inferior {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 40vh;
+    overflow-y: auto;
+    background: var(--blanco);
+    border-top: 4px solid var(--rosa);
+    box-shadow: 0 -4px 12px var(--sombra);
+    padding: 1rem 2rem;
+    z-index: 1000;
+}
+
+.carrito-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.carrito-contenido .info {
+    flex: 1;
+}
+
+#carrito-icono {
+    width: 80px;
+    object-fit: contain;
+}
+
+#carrito-count {
+    transition: transform 0.2s ease;
+}
+
+.rebote {
+    animation: bounce 0.4s ease;
+}
+
+.oculto {
+    display: none;
+}
+
+.animar-carrito {
+    animation: slideIn 0.5s ease;
+}
+
+#carrito-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#carrito-lista li {
+    margin-bottom: 0.5rem;
+}
+
+.cerrar-carrito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--lavanda);
+    color: var(--texto);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px var(--sombra);
+    transition: transform 0.2s ease, background 0.3s ease;
+
+    display: flex;
+    /* activa flexbox */
+    align-items: center;
+    /* centra vertical */
+    justify-content: center;
+    /* centra horizontal */
+    padding: 0;
+    /* quita espacio extra */
+}
+
+
+.cerrar-carrito:hover {
+    background: var(--azul);
+    transform: scale(1.1);
+}
+
+
+#nombre-usuario {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+#paginador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem auto;
+    width: fit-content;
+}
+
+
+/* Panel admin */
+.div-form,
+.div-config {
+    background: var(--blanco);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--sombra);
+}
+
+
+.div-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#nombre-tienda-portada {
+    font-family: 'Cookie', cursive;
+    font-size: 2.3rem;
+
+}
+
+#descripcion-tienda {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 100px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#descripcion-tienda:focus {
+    border-color: var(--lavanda);
+    box-shadow: 0 0 6px var(--lavanda);
+    outline: none;
+}
+
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+input {
+    flex: 1 1 200px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.botones {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.botones button {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.botones .editar {
+    background: var(--azul);
+}
+
+.botones .borrar {
+    background: #ffb3b3;
+    color: #600;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.admin-card {
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--sombra);
+    padding: 1rem;
+}
+
+.admin-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.admin-info input,
+.admin-info textarea {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    resize: vertical;
+}
+
+#slider-preview {
+    margin-top: 1rem;
+}
+
+.slider-thumb {
+    position: relative;
+}
+
+.slider-thumb img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.slider-thumb button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #f47d84;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    cursor: pointer;
+}
+
+.slider {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider-track img {
+    width: 100vw;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+#paginador-admin {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+}
+
+#paginador-admin button {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: none;
+    background: var(--lavanda);
+    cursor: pointer;
+}
+
+#paginador-admin .activo {
+    background: var(--azul);
+    font-weight: bold;
+}
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--lavanda);
+    color: var(--texto);
+    font-weight: bold;
+}
+
+footer a {
+    color: var(--texto);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.notificacion {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--azul);
+    color: var(--texto);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--sombra);
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+
+.notificacion.mostrar {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* Contenedor principal del login */
+.login-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--sombra);
+    animation: fadeSlide 0.6s ease;
+}
+
+/* Título */
+.login-container h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--texto);
+}
+
+/* Botón de Google */
+#btn-google-login {
+    width: 100%;
+    background: var(--lavanda);
+    color: var(--texto);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    box-shadow: 0 2px 6px var(--sombra);
+}
+
+#btn-google-login:hover {
+    background: var(--azul);
+    transform: scale(1.05);
+}
+
+/* Inputs (si agregas email/contraseña) */
+.login-container input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container input:focus {
+    border-color: var(--lavanda);
+    box-shadow: 0 0 6px var(--lavanda);
+    outline: none;
+}
+
+/* Mensajes de error */
+.login-container .error {
+    color: #d9534f;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Animación*/
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

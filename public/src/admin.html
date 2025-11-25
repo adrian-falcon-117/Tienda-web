@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Panel de Administración</title>
+</head>
+
+<body>
+    <header class="admin-header">
+        <img id="logo" alt="Logo La Tienda Rosa" class="logo" />
+        <h1>Panel de Administración</h1>
+        <button id="btn-logout">Cerrar sesión</button>
+    </header>
+
+    <div class="div-config">
+        <div class="div-option">
+            <h2>Configuración de la tienda</h2>
+            <label>Nombre de la tienda</label>
+            <input type="text" id="nombre-tienda" placeholder="Nombre" />
+        </div>
+        <hr />
+        <div class="div-option">
+            <label>Imágenes del slider</label>
+            <input type="file" id="slider-imagen" accept="image/*" />
+            <button id="btn-agregar-slider">Agregar imagen</button>
+            <div id="slider-preview"></div>
+        </div>
+        <hr />
+        <div class="div-option">
+            <label>Descripción de la tienda</label>
+            <textarea id="descripcion-tienda" placeholder="Escribe una breve descripción..." rows="4"></textarea>
+        </div>
+        <hr />
+        <div class="div-option">
+            <label>Redes sociales</label>
+            <div class="div-flex">
+                <input type="url" id="link-instagram" placeholder="Instagram URL" />
+                <input type="url" id="link-facebook" placeholder="Facebook URL" />
+                <input type="tel" id="numero-whatsapp" placeholder="Número de WhatsApp (ej: 3735688152)" />
+            </div>
+        </div>
+        <button id="btn-guardar-configuracion">Guardar configuración</button>
+    </div>
+
+    <div class="div-form">
+        <h2>Agregar nuevo producto</h2>
+        <form id="form-articulo">
+            <input type="text" id="titulo" placeholder="Título" required />
+            <input type="text" id="descripcion" placeholder="Descripción" required />
+            <input type="number" id="precio" placeholder="Precio" required />
+            <input type="number" id="stock" placeholder="Stock" required />
+            <input type="file" id="foto" accept="image/*" required />
+            <button type="submit">Guardar</button>
+            <div id="mensaje" class="oculto"></div>
+        </form>
+    </div>
+
+    <div id="lista-articulos" class="admin-grid"></div>
+
+    <div id="paginador-admin"></div>
+
+    <div id="notificacion" class="notificacion oculto"></div>
+
+</body>
+
+</html>

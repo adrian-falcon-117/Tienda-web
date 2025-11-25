@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tienda</title>
+    <link rel="icon" type="image/png" href="assets/logo-transparente.png" />
+</head>
+
+<body>
+    <header class="portada-header">
+        <img id="logo" alt="Logo La Tienda Rosa" class="logo" />
+        <h1 id="nombre-tienda-portada">...</h1>
+        <button id="btn-carrito" class="btn-carrito">🛒 Carrito (<span id="carrito-count">0</span>)</button>
+    </header>
+
+    <section class="bienvenida" id="bienvenida">
+        <div id="content">
+            <div class="slider" id="slider-portada">
+                <div class="slider-track" id="slider-track"></div>
+            </div>
+            <div class="contenido">
+                <h2>Bienvenido a nuestra tienda</h2>
+                <p id="descripcion"></p>
+                <a href="#lista-articulos-index" class="boton-entrar">Ver artículos</a>
+            </div>
+        </div>
+    </section>
+
+    <main id="lista-articulos-index"></main>
+    <div id="paginador"></div>
+
+    <section id="carrito" class="carrito-inferior oculto">
+        <!-- Botón de cerrar -->
+        <button id="btn-cerrar-carrito" class="cerrar-carrito">✕</button>
+
+        <div class="carrito-contenido">
+            <div class="info">
+                <h2>Carrito</h2>
+                <ul id="carrito-lista"></ul>
+                <p>Total: $<span id="carrito-total">0</span></p>
+                <button id="btn-vaciar-carrito">Vaciar carrito</button>
+                <input type="text" id="nombre-usuario" placeholder="Tu nombre" />
+                <button id="btn-enviar-whatsapp">Pedir por WhatsApp</button>
+            </div>
+            <img id="carrito-icono" alt="Carrito" />
+        </div>
+    </section>
+
+    <footer>
+        <p>Seguinos:</p>
+        <a id="link-instagram-footer" target="_blank">Instagram</a>
+        <a id="link-facebook-footer" target="_blank">Facebook</a>
+        <a id="link-whatsapp-footer" target="_blank">WhatsApp <span id="numero-whatsapp-footer"></span></a>
+
+    </footer>
+</body>
+
+</html>
