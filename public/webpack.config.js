@@ -50,10 +50,11 @@ module.exports = {
     ],
     devServer: {
         static: path.resolve(__dirname, 'dist'),
-        port: 3000,
+        port: 8080,
         open: true,
         hot: true
     },
     devtool: 'eval-source-map',
-    mode: 'development'
+    //mode: 'development'
+    mode: 'production'
 };

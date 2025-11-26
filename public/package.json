@@ -2,13 +2,13 @@
   "name": "tienda-web",
   "version": "1.0.0",
   "description": "Tienda de productos varios",
-  "homepage": "https://github.com/adrian-falcon-117/tienda-articulos-variados#readme",
+  "homepage": "https://github.com/adrian-falcon-117/Tienda-web#readme",
   "bugs": {
-    "url": "https://github.com/adrian-falcon-117/tienda-articulos-variados/issues"
+    "url": "https://github.com/adrian-falcon-117/Tienda-web/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adrian-falcon-117/tienda-articulos-variados.git"
+    "url": "git+https://github.com/adrian-falcon-117/Tienda-web.git"
   },
   "license": "ISC",
   "author": "Adrian Falcon",
