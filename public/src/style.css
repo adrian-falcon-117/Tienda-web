@@ -615,3 +615,28 @@ footer a {
         opacity: 1;
     }
 }
+
+/* Para pantallas pequeñas (celulares) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .bienvenida h2 {
+        font-size: 1.6rem;
+    }
+
+    .articulo img {
+        height: 140px;
+    }
+
+    .login-container {
+        margin: 2rem auto;
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    .slider-track img {
+        height: 220px;
+    }
+}
