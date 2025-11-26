@@ -244,87 +244,9 @@ async function enviarPorWhatsApp() {
     renderizarCarrito();
     carritoCount.textContent = 0;
 
-    const url = `https://wa.me/${config.wa}?text=${encodeURIComponent(resumen)}`;
+    const url = `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(resumen)}`;
     window.open(url, "_blank");
 }
-
-/*
-function agregarAlCarrito(index) {
-    const art = articulos[index];
-    const existente = carrito.find(a => a.id === art.id);
-    const cantidadEnCarrito = existente ? existente.cantidad || 1 : 0;
-
-    if (art.stock > cantidadEnCarrito) {
-        if (existente) {
-            existente.cantidad += 1;
-        } else {
-            carrito.push({ ...art, cantidad: 1 });
-        }
-        carritoCount.textContent = carrito.reduce((acc, a) => acc + a.cantidad, 0);
-        carritoCount.classList.add("rebote");
-        setTimeout(() => carritoCount.classList.remove("rebote"), 400);
-        renderizarCarrito();
-    } else {
-        alert("No hay suficiente stock disponible.");
-    }
-}
-
-function renderizarCarrito() {
-    carritoLista.innerHTML = "";
-    let total = 0;
-    carrito.forEach((a) => {
-        carritoLista.innerHTML += `<li>${a.titulo} x${a.cantidad || 1} - $${a.precio * (a.cantidad || 1)}</li>`;
-        total += a.precio * (a.cantidad || 1);
-    });
-    carritoTotal.textContent = total;
-}
-
-function mostrarCarrito() {
-    const carrito = document.getElementById("carrito");
-    carrito.classList.toggle("oculto");
-    if (!carrito.classList.contains("oculto")) {
-        carrito.classList.add("animar-carrito");
-        setTimeout(() => carrito.classList.remove("animar-carrito"), 500);
-    }
-}
-
-function vaciarCarrito() {
-    carrito = [];
-    carritoCount.textContent = 0;
-    renderizarCarrito();
-}
-
-
-function enviarPorWhatsApp() {
-    const nombre = document.getElementById("nombre-usuario").value.trim();
-    if (!nombre) return alert("Por favor ingresá tu nombre.");
-    if (carrito.length === 0) return alert("El carrito está vacío.");
-
-    let resumen = `Hola, soy ${nombre} y quiero comprar:\n`;
-    let total = 0;
-    carrito.forEach(item => {
-        const cantidad = item.cantidad || 1;
-        resumen += `• ${item.titulo} x${cantidad} - $${item.precio * cantidad}\n`;
-        total += item.precio * cantidad;
-    });
-    resumen += `\nTotal: $${total}`;
-
-    if (!confirm("¿Confirmás el pedido por WhatsApp?\n\n" + resumen)) return;
-
-    carrito.forEach(item => {
-        const index = articulos.findIndex(a => a.id === item.id);
-        if (index !== -1) articulos[index].stock -= item.cantidad || 1;
-    });
-
-    localStorage.setItem("articulos", JSON.stringify(articulos));
-    renderizarArticulos();
-    carrito = [];
-    renderizarCarrito();
-    carritoCount.textContent = 0;
-
-    const url = `https://wa.me/549${config.redes.whatsapp}?text=${encodeURIComponent(resumen)}`;
-    window.open(url, "_blank");
-} */
 
 function renderizarPaginacion(total) {
     const totalPaginas = Math.ceil(total / productosPorPagina);
@@ -343,15 +265,6 @@ function renderizarPaginacion(total) {
     }
 }
 
-
-function mostrarNotificacionCarrito(texto) {
-    const noti = document.getElementById("notificacion-carrito");
-    noti.textContent = texto;
-    noti.classList.add("mostrar");
-    setTimeout(() => {
-        noti.classList.remove("mostrar");
-    }, 3000);
-}
 
 // Inicializar
 window.agregarAlCarrito = agregarAlCarrito;
