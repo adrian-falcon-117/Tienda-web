@@ -1,17 +1,18 @@
 // src/app.js
-import './style.css';
-import { storage, db } from "./firebase"
-import logoUrl from './assets/logo-transparente.png';
-import logoCarrito from './assets/ic-carrito.png';
+import '../styles/index.css';
+//import { agregarAlCarrito, renderizarCarrito, mostrarCarrito, vaciarCarrito } from "./util/carrito.js"
+import { storage, db } from "../util/firebase.js"
+import logoUrl from '../assets/logo-transparente.png';
+import logoCarrito from '../assets/ic-carrito.png';
 
 import { collection, getDocs, getDoc, doc, updateDoc } from "firebase/firestore";
 import { ref, listAll, getDownloadURL } from "firebase/storage"
 
-
 const sliderFolderRef = ref(storage, "slider"); // carpeta en Storage donde guardas las imágenes
 
-let articulos = JSON.parse(localStorage.getItem("articulos")) || [];
+let articulos = {};
 let carrito = [];
+let config = {};
 
 const logo = document.getElementById("logo");
 const lista = document.getElementById("lista-articulos-index");
@@ -28,6 +29,10 @@ const productosPorPagina = 8;
 logo.src = logoUrl;
 carritoIcono.src = logoCarrito;
 
+document.getElementById("btn-cerrar-carrito").addEventListener("click", () => {
+    document.getElementById("carrito").classList.add("oculto");
+});
+
 btnCarrito.onclick = function () {
     mostrarCarrito();
 }
@@ -38,8 +43,6 @@ btnEnviarWhatsapp.onclick = function () {
     enviarPorWhatsApp();
 }
 
-
-let config = {};
 
 async function aplicarConfiguracion() {
     try {
@@ -149,7 +152,6 @@ async function renderizarArticulos() {
     }
 }
 
-
 // Agregar al carrito y restar stock en Firestore
 async function agregarAlCarrito(id) {
     const art = articulos.find(a => a.id === id);
@@ -206,10 +208,6 @@ async function vaciarCarrito() {
     carritoCount.textContent = 0;
     renderizarCarrito();
 }
-
-document.getElementById("btn-cerrar-carrito").addEventListener("click", () => {
-    document.getElementById("carrito").classList.add("oculto");
-});
 
 
 // 🔹 Enviar pedido por WhatsApp y restar stock definitivamente

@@ -1,11 +1,20 @@
 // src/app.js
-import './style.css';
-import logoUrl from './assets/logo-transparente.png';
-import { storage, db, auth } from './firebase';
+import '../styles/admin.css';
+import logoUrl from '../assets/logo-transparente.png';
+import { storage, db, auth } from '../util/firebase';
 import { doc, setDoc, getDocs, getDoc, addDoc, collection, updateDoc, deleteDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL, deleteObject, uploadString } from "firebase/storage";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // Usuario autenticado → mostrar panel
+        renderizarAdmin();
+    } else {
+        // No autenticado → redirigir a login
+        window.location.href = "./login.html";
+    }
+});
 
 const logo = document.getElementById("logo");
 const btnAgregarSlider = document.getElementById("btn-agregar-slider");
@@ -30,18 +39,6 @@ btnLogout.onclick = function () {
     logout();
 }
 
-
-
-
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // Usuario autenticado → mostrar panel
-        renderizarAdmin();
-    } else {
-        // No autenticado → redirigir a login
-        window.location.href = "./login.html";
-    }
-});
 
 async function logout() {
     await signOut(auth);
@@ -109,7 +106,6 @@ form.addEventListener("submit", async (e) => {
     };
     reader.readAsDataURL(fotoInput.files[0]);
 });
-
 
 // 🔹 Renderizar artículos en el panel admin con paginación
 async function renderizarAdmin() {

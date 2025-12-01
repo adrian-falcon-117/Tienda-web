@@ -1,0 +1,86 @@
+:root {
+    --rosa: #f8cdd8;
+    --azul: #cce7f2;
+    --lavanda: #e3d5ff;
+    --blanco: #ffffff;
+    --gris: #f0f0f0;
+    --texto: #333;
+    --sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset y base */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--gris);
+    color: var(--texto);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor principal del login */
+.login-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--sombra);
+    animation: fadeSlide 0.6s ease;
+}
+
+/* Título */
+.login-container h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--texto);
+}
+
+/* Botón de Google */
+#btn-google-login {
+    width: 100%;
+    background: var(--lavanda);
+    color: var(--texto);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    box-shadow: 0 2px 6px var(--sombra);
+}
+
+#btn-google-login:hover {
+    background: var(--azul);
+    transform: scale(1.05);
+}
+
+/* Inputs (si agregas email/contraseña) */
+.login-container input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container input:focus {
+    border-color: var(--lavanda);
+    box-shadow: 0 0 6px var(--lavanda);
+    outline: none;
+}
+
+/* Mensajes de error */
+.login-container .error {
+    color: #d9534f;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+}

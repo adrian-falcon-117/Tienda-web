@@ -1,6 +1,6 @@
-import './style.css';
+import '../styles/login.css';
 // Importa Firebase
-import { auth } from "./firebase";
+import { auth } from "../util/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 // Crear el proveedor de Google

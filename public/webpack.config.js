@@ -4,9 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: './src/app.js',
-        admin: './src/admin.js',
-        auth: './src/auth.js'
+        main: './src/util/app.js',
+        admin: './src/util/admin.js',
+        auth: './src/util/auth.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -35,22 +35,37 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: 'index.html',
-            chunks: ['main'] // inyecta main.bundle.js
+            chunks: ['main', 'vendor'],
+            favicon: './src/assets/favicon.png'
         }),
         new HtmlWebpackPlugin({
-            template: './src/admin.html',
+            template: './src/page/admin.html',
             filename: 'admin.html',
-            chunks: ['admin'] // inyecta admin.bundle.js
+            chunks: ['admin', 'vendor'],
+            favicon: './src/assets/favicon.png'
         }),
         new HtmlWebpackPlugin({
-            template: './src/login.html',
+            template: './src/page/login.html',
             filename: 'login.html',
-            chunks: ['auth'] // inyecta login.bundle.js
-        })
+            chunks: ['auth', 'vendor'],
+            favicon: './src/assets/favicon.png'
+        }),
     ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all',
+                },
+            },
+        },
+    },
     devServer: {
         static: path.resolve(__dirname, 'dist'),
-        port: 8080,
+        port: 3000,
         open: true,
         hot: true
     },
