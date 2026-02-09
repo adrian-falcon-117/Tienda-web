@@ -2,7 +2,7 @@
 
 Aplicación web para la venta de artículos variados. Desarrollada con HTML, CSS y JavaScript, con enfoque en simplicidad, rendimiento y escalabilidad.
 
-##📂 Estructura del proyecto
+📂 ##Estructura del proyecto
 ```
 Tienda-web/
 ├── index.html          # Página principal
@@ -13,13 +13,13 @@ Tienda-web/
 └── README.md           # Documentación del proyecto
 ```
 
-##⚙️ Tecnologías utilizadas
+⚙️ ##Tecnologías utilizadas
 
 Frontend: HTML5, CSS3, JavaScript
 Estilos: CSS modular y responsivo
 Contenedores: Docker (para despliegue)
 
-##📦 Funcionalidades
+📦 ##Funcionalidades
 
 Catálogo de productos con imágenes y descripciones.
 Carrito de compras dinámico.
