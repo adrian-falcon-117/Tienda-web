@@ -12,7 +12,7 @@ onAuthStateChanged(auth, (user) => {
         renderizarAdmin();
     } else {
         // No autenticado → redirigir a login
-        window.location.href = "./login.html";
+        window.location.href = "./login";
     }
 });
 

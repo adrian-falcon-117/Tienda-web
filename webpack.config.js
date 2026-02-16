@@ -67,9 +67,16 @@ module.exports = {
         static: path.resolve(__dirname, 'dist'),
         port: 3000,
         open: true,
-        hot: true
+        hot: true,
+        historyApiFallback: { 
+            rewrites: [ 
+                { from: /^\/$/, to: '/index.html' }, 
+                { from: /^\/admin$/, to: '/admin.html' }, 
+                { from: /^\/login$/, to: '/login.html' } 
+            ] 
+        }
     },
     devtool: 'eval-source-map',
     //mode: 'development'
-    mode: 'production'
+    //mode: 'production'
 };
